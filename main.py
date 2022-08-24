@@ -37,7 +37,7 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    TOKEN = 'AAECKDbPBfR7HIpin8U_HF2iJpFLe2V0cWs'
+    TOKEN = '5549731915:AAECKDbPBfR7HIpin8U_HF2iJpFLe2V0cWs'
     APP_NAME='https://echo-bot-12453.herokuapp.com/'
     
     updater = Updater(TOKEN, use_context=True)
