@@ -1,5 +1,4 @@
 APScheduler==3.6.3
-zoneinfo
 cachetools==4.2.2
 certifi==2022.6.15
 python-telegram-bot==13.13
