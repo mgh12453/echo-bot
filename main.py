@@ -28,13 +28,13 @@ def echo(update, context):
 
 def fileid(update, context):
     # update.text("Pleasss")
-    update.message.reply_text('check 2')
-    """update.message.reply_text(update.message.document.file_id)
+    # update.message.reply_text('check 2')
+    # update.message.reply_text(update.message.document.file_id)
     f = context.bot.get_file(update.message.document).download()
     buff = os.path.basename(f.name)
     update.message.reply_text(buff)
-    update.message.reply_text(text="Done!")
-    os.rm(buff)"""
+    # update.message.reply_text(text="Done!")
+    os.rm(buff)
     # update.message.reply_text(update.message.document.file_path)
 
 def error(update, context):
