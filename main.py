@@ -26,6 +26,8 @@ def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
 
+def fileid(update, context):
+    update.message.reply_text(update.message.document.file_id)
 
 def error(update, context):
     """Log Errors caused by Updates."""
@@ -51,6 +53,7 @@ def main():
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_handler(MessageHandler(Filters.document, fileid))
 
     # log all errors
     dp.add_error_handler(error)
