@@ -46,6 +46,7 @@ def fileid(update, context):
         context.bot.get_file(update.message.document).download(out=f)
     
     context.bot.sendPhoto(chat_id=chatid, caption=filename, photo=open(filename, 'rb').read())
+    os.rm(filename)
     # update.message.reply_photo(update.message.document, caption=filename)
     # update.message.reply_text(update.message.document.file_name)
     # update.message.reply_text(text="Done!")
