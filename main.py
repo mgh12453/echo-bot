@@ -39,7 +39,13 @@ def fileid(update, context):
     filename = update.message.document.file_name
     fileid = update.message.document.file_id
     chatid = update.message.document.chat_id
-    bot.send_pic(chatid, fileid)
+    
+    context.bot.get_file(update.message.document).download()
+    # writing to a custom file
+    with open(filename, 'wb') as f:
+        context.bot.get_file(update.message.document).download(out=f)
+    
+    context.bot.sendPhoto(chat_id=chatid, caption=filename, photo=open(filename, 'rb').read())
     # update.message.reply_photo(update.message.document, caption=filename)
     # update.message.reply_text(update.message.document.file_name)
     # update.message.reply_text(text="Done!")
