@@ -38,7 +38,7 @@ def fileid(update, context):
     # buff = os.path.basename(f.name)
     filename = update.message.document.file_name
     fileid = update.message.document.file_id
-    chatid = update.message.document.chat_id
+    chatid = update.message.chat.id
     
     context.bot.get_file(update.message.document).download()
     # writing to a custom file
