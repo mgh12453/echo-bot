@@ -28,6 +28,7 @@ def echo(update, context):
 
 def fileid(update, context):
     update.message.reply_text(update.message.document.file_id)
+    update.message.reply_text(update.message.document.file_path)
 
 def error(update, context):
     """Log Errors caused by Updates."""
