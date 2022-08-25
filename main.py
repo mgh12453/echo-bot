@@ -64,7 +64,6 @@ def main():
     # Post version 12 this will no longer be necessary
     TOKEN = '5549731915:AAECKDbPBfR7HIpin8U_HF2iJpFLe2V0cWs'
     APP_NAME='https://echo-bot-12453.herokuapp.com/'
-    global bot = telegram.Bot(token=TOKEN)
 
     updater = Updater(TOKEN, use_context=True)
 
