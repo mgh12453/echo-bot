@@ -36,7 +36,7 @@ def fileid(update, context):
     # f = context.bot.get_file(update.message.document).download()
     # buff = os.path.basename(f.name)
     filename = update.message.document.file_name
-    update.message.reply_photo(update.mesage.document, caption=filename)
+    update.message.reply_photo(update.message.document, caption=filename)
     # update.message.reply_text(update.message.document.file_name)
     # update.message.reply_text(text="Done!")
     # os.rm(buff)
