@@ -1,5 +1,6 @@
 import logging
 import os
+import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # Enable logging
@@ -36,7 +37,10 @@ def fileid(update, context):
     # f = context.bot.get_file(update.message.document).download()
     # buff = os.path.basename(f.name)
     filename = update.message.document.file_name
-    update.message.reply_photo(update.message.document, caption=filename)
+    fileid = update.message.document.file_id
+    chatid = update.message.document.chat_id
+    bot.send_pic(chatid, fileid)
+    # update.message.reply_photo(update.message.document, caption=filename)
     # update.message.reply_text(update.message.document.file_name)
     # update.message.reply_text(text="Done!")
     # os.rm(buff)
@@ -54,7 +58,8 @@ def main():
     # Post version 12 this will no longer be necessary
     TOKEN = '5549731915:AAECKDbPBfR7HIpin8U_HF2iJpFLe2V0cWs'
     APP_NAME='https://echo-bot-12453.herokuapp.com/'
-    
+    global bot = telegram.Bot(token=TOKEN)
+
     updater = Updater(TOKEN, use_context=True)
 
     # Get the dispatcher to register handlers
