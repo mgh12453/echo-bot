@@ -27,7 +27,7 @@ def echo(update, context):
     update.message.reply_text(update.message.text)
 
 def echo_photo(update, context):
-    update.message.reply_text(update.message.photo.file_name)
+    update.message.reply_text("مگه غلومی بهت نگفته بود فایل بفرستی فقظ")
 
 def fileid(update, context):
     # update.text("Pleasss")
@@ -35,7 +35,9 @@ def fileid(update, context):
     # update.message.reply_text(update.message.document.file_id)
     # f = context.bot.get_file(update.message.document).download()
     # buff = os.path.basename(f.name)
-    update.message.reply_text(update.message.document.file_name)
+    filename = update.message.document.file_name
+    update.message.reply_photo(update.mesage.document, caption=filename)
+    # update.message.reply_text(update.message.document.file_name)
     # update.message.reply_text(text="Done!")
     # os.rm(buff)
     # update.message.reply_text(update.message.document.file_path)
