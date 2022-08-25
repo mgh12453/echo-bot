@@ -27,8 +27,13 @@ def echo(update, context):
     update.message.reply_text(update.message.text)
 
 def fileid(update, context):
-    # update.message.reply_text(update.message.document.file_id)
-    update.message.reply_text(update.message.document.file_path)
+    update.message.reply_text(update.message.document.file_id)
+    f = context.bot.get_file(update.message.document).download()
+    buff = os.path.basename(f.name)
+    update.message.reply_text(buff)
+    update.message.reply_text("Done!")
+    os.rm(buff)
+    # update.message.reply_text(update.message.document.file_path)
 
 def error(update, context):
     """Log Errors caused by Updates."""
