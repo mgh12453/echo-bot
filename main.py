@@ -27,11 +27,11 @@ def echo(update, context):
     update.message.reply_text(update.message.text)
 
 def fileid(update, context):
-    update.message.reply_text(update.message.document.file_id)
+    await update.message.reply_text(update.message.document.file_id)
     f = context.bot.get_file(update.message.document).download()
     buff = os.path.basename(f.name)
-    update.message.reply_text(buff)
-    update.message.reply_text("Done!")
+    await update.message.reply_text(buff)
+    await update.message.reply_text(text="Done!")
     os.rm(buff)
     # update.message.reply_text(update.message.document.file_path)
 
