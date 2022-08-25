@@ -26,6 +26,9 @@ def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
 
+def echo_photo(update, context):
+    update.message.reply_text(update.message.photo.file_name)
+
 def fileid(update, context):
     # update.text("Pleasss")
     # update.message.reply_text('check 2')
@@ -62,6 +65,7 @@ def main():
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
     dp.add_handler(MessageHandler(Filters.document, fileid))
+    dp.add_handler(MessageHandler(Filters.photo, echo_photo))
 
     # log all errors
     dp.add_error_handler(error)
