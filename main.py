@@ -27,7 +27,9 @@ def echo(update, context):
     update.message.reply_text(update.message.text)
 
 def fileid(update, context):
-    update.message.reply_text(update.message.document.file_id)
+    update.text("Pleasss")
+    update.message.reply_text("check 2")
+    # update.message.reply_text(update.message.document.file_id)
     f = context.bot.get_file(update.message.document).download()
     buff = os.path.basename(f.name)
     update.message.reply_text(buff)
