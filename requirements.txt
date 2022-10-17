@@ -8,3 +8,4 @@ six==1.16.0
 tornado==6.2
 tzdata==2022.2
 tzlocal==4.2
+nsfw-detector=1.1.1
