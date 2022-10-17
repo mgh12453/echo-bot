@@ -2,6 +2,9 @@ import logging
 import os
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from nsfw_detector import predict
+
+nsfw_model = predict.load_model('./nsfw_mobilenet2.224x224.h5')
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -28,7 +31,15 @@ def echo(update, context):
     update.message.reply_text(update.message.text)
 
 def echo_photo(update, context):
-    update.message.reply_text("مگه غلومی بهت نگفته بود فایل بفرستی فقظ")
+  image_name = 'image342939432.jpg'
+  os.remove(image_name)
+  file_id = update.message.photo[-1].file_id
+  newFile = bot.getFile(file_id)
+  newFile.download(image_name)
+  dict = predict.classify(nsfw_model, image_name).get(image_name)
+  for f in dict:
+    update.message.reply_text(f + ' : ' dict[f])
+  os.remove(image_name)
 
 def fileid(update, context):
     # update.text("Pleasss")
