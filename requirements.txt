@@ -3,4 +3,5 @@ pytz==2022.2.1
 pytz-deprecation-shim==0.1.0.post0
 tzdata==2022.2
 tzlocal==4.2
+tensorflow==1.7.0
 nsfw-detector==1.1.1
